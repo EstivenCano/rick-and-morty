@@ -1,4 +1,4 @@
-import { Origin } from "./origin";
+import { Location } from "./location";
 
 export interface Character {
   id: number;
@@ -7,7 +7,7 @@ export interface Character {
   species: string;
   type: string;
   gender: string;
-  origin: Origin;
+  origin: Location;
   location: Location;
   image: string;
   episode: Array<string>;
