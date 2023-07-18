@@ -1,6 +1,8 @@
 "use client";
 
 import { getAllCharacters } from "@/services/characters.service";
+import Image from "next/image";
+import { Fragment } from "react";
 import useSWRImmutable from "swr/immutable";
 
 export const Characters = () => {
@@ -9,12 +11,13 @@ export const Characters = () => {
     getAllCharacters
   );
 
-  console.log(data);
-
   return (
-    <div>
+    <div className='flex flex-wrap gap-4 justify-center'>
       {data?.results.map((res, i) => (
-        <p key={i}>{res.name}</p>
+        <Fragment key={i}>
+          <p>{res.name}</p>
+          <Image src={res.image} alt={res.name} width={50} height={50} />
+        </Fragment>
       ))}
     </div>
   );
