@@ -22,14 +22,6 @@ module.exports = {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
-        nuclear: {
-          DEFAULT: "hsl(var(--nuclear))",
-          foreground: "hsl(var(--primary-foreground))",
-        },
-        nuclearBlue: {
-          DEFAULT: "hsl(var(--nuclear-blue))",
-          foreground: "hsl(var(--primary-foreground))",
-        },
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
@@ -57,6 +49,14 @@ module.exports = {
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
+        },
+        nuclear: {
+          DEFAULT: "hsl(var(--nuclear))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
+        bluclear: {
+          DEFAULT: "hsl(var(--nuclear-blue))",
+          foreground: "hsl(var(--primary-foreground))",
         },
       },
       borderRadius: {
