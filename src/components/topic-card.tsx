@@ -28,7 +28,7 @@ export const TopicCard = ({
   return (
     <Card
       className={cn(
-        "w-full h-full bg-transparent relative md:filter md:grayscale md:hover:grayscale-0 md:duration-150 border-0",
+        "w-full h-full bg-transparent relative rounded-none border-0 group overflow-hidden",
         className
       )}>
       <Image
@@ -36,13 +36,13 @@ export const TopicCard = ({
         alt={`${title} image`}
         fill
         style={{ objectFit: "cover" }}
-        className='-z-10'
+        className='-z-10 md:filter md:grayscale md:group-hover:grayscale-0 md:duration-150 group-hover:scale-105'
       />
       <div className='h-full w-full flex'>
-        <CardFooter className='px-4 py-2 w-full flex-wrap overflow-hidden bg-foreground/60 text-background mt-auto'>
+        <CardFooter className='border-l-8 grayscale-0 border-nuclear px-4 py-2 w-full flex-wrap overflow-hidden bg-background/70 dark:bg-background/60 mt-auto'>
           <div>
             <CardTitle className='text-lg md:text-xl'>{title}</CardTitle>
-            <CardDescription className='truncate'>
+            <CardDescription className='text-foreground/80'>
               {description}
             </CardDescription>
           </div>
