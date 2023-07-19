@@ -1,7 +1,7 @@
 import { getCharactersByIds } from "@/services/characters.service";
 import { notFound } from "next/navigation";
 
-export default async function Character({
+export default async function CharacterById({
   params,
 }: {
   params: { id: string };
