@@ -9,7 +9,9 @@ export default function NotFound() {
         <h1 className='sr-only'>404 - Not Found</h1>
         <h2 className='text-4xl font-bold'>Not Found</h2>
         <NotFoundBackground />
-        <p className='text-xl'>This page does not exist on this dimension.</p>
+        <p className='text-xl text-center'>
+          This page does not exist on this dimension.
+        </p>
         <Button className='mt-4' asChild>
           <a href='/' target='_self'>
             Back to home

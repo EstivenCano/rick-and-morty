@@ -26,16 +26,17 @@ const topics = [
 export default function Home() {
   return (
     <>
-      <header className='z-10 fixed flex justify-between w-full pt-2 px-8'>
-        <Image
-          src='/assets/Rick-and-Morty.webp'
-          alt='Rick and morty logo'
-          width={220}
-          height={50}
-          className='-rotate-12 -mt-4'
-        />
+      <Image
+        src='/assets/Rick-and-Morty.webp'
+        alt='Rick and morty logo'
+        width={220}
+        height={50}
+        className='-rotate-12 -top-4 left-4 fixed'
+      />
+      <header className='fixed top-4 right-4 z-10'>
         <ChangeTheme />
       </header>
+
       <h1 className='sr-only'>Rick and Morty</h1>
       <main className='grid grid-cols-1 md:grid-cols-2 row-auto m-auto h-screen bg-foreground/10'>
         {topics.map((topic, i) => (
