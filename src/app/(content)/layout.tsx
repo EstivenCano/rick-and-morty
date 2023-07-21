@@ -14,9 +14,7 @@ export default function RootLayout({
   return (
     <>
       <AppBar />
-      <main className='flex h-[calc(100%-90px)] w-full max-w-7xl mx-auto'>
-        {children}
-      </main>
+      <main className='flex w-full max-w-7xl mx-auto'>{children}</main>
     </>
   );
 }

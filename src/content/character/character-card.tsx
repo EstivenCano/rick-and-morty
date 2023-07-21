@@ -15,8 +15,8 @@ interface Props {
 
 export const CharacterCard = ({ character }: Props) => {
   return (
-    <Card className='flex flex-row w-[440px] h-60 max-w-md justify-between'>
-      <div className='min-w-[180px] h-full relative rounded-l-sm overflow-hidden'>
+    <Card className='flex flex-row w-72 h-24 md:w-[440px] md:h-60 max-w-md justify-between'>
+      <div className='w-[140px] h-full float-left md:min-w-[180px] md:h-full relative rounded-l-sm overflow-hidden'>
         <Image
           src={character.image}
           alt='Rick and morty logo'
@@ -27,22 +27,22 @@ export const CharacterCard = ({ character }: Props) => {
           }}
         />
       </div>
-      <div className='border-r-4 rounded-md border-nuclear/60 w-full overflow-hidden'>
-        <CardHeader>
-          <CardTitle className='hover:text-bluclear cursor-pointer line-clamp-2'>
+      <div className='border-r-4 px-2 md:px-0 flex flex-row md:flex-col rounded-md border-nuclear/60 w-full overflow-hidden'>
+        <CardHeader className='p-2 md:p-6 md:py-4'>
+          <CardTitle className='hover:text-bluclear text-lg md:text-xl cursor-pointer line-clamp-2'>
             {character.name}
           </CardTitle>
           <CardDescription className='capitalize'>
             {character.status} - {character.species}
           </CardDescription>
         </CardHeader>
-        <CardContent className='flex flex-col gap-4'>
+        <CardContent className='hidden md:flex flex-col gap-2 md:gap-4'>
           <div>
-            <strong className='text-md'>Last know location:</strong>
+            <strong className='text-md truncate'>Last know location:</strong>
             <p className='text-sm truncate'>{character.location.name}</p>
           </div>
           <div>
-            <strong className='text-md'>First seen in:</strong>
+            <strong className='text-md truncate'>First seen in:</strong>
             <p className='text-sm truncate'>{character.location.name}</p>
           </div>
         </CardContent>

@@ -4,6 +4,7 @@ import { Character } from "@/types/character";
 import { Info } from "@/types/info";
 
 import { CharacterList } from "./characters-list";
+import { Pagination } from "@/components/pagination";
 
 interface Props {
   characters: Character[];
@@ -14,6 +15,7 @@ const Characters = ({ characters, info }: Props) => {
   return (
     <div>
       <CharacterList characters={characters} />
+      <Pagination info={info} />
     </div>
   );
 };

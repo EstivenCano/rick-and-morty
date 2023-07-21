@@ -3,10 +3,10 @@ import { request, gql } from "graphql-request";
 import { apiRoute } from "./constants";
 import { getCharacterByIdDto } from "@/dto/getCharacterById.dto";
 
-export const getAllCharacters = async () => {
+export const getAllCharacters = async (page: number = 1) => {
   const document = gql`
-    {
-      characters {
+    query getAllCharacters($page: Int!) {
+      characters(page: $page) {
         results {
           id
           name
@@ -37,7 +37,11 @@ export const getAllCharacters = async () => {
     }
   `;
 
-  const { characters } = await request<getAllCharactersDto>(apiRoute, document);
+  const { characters } = await request<getAllCharactersDto>(
+    apiRoute,
+    document,
+    { page }
+  );
 
   return characters;
 };

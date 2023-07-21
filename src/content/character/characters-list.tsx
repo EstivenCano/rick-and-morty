@@ -7,7 +7,7 @@ interface Props {
 
 export const CharacterList = ({ characters }: Props) => {
   return (
-    <div className='flex flex-wrap content-stretch gap-4 py-4 justify-center'>
+    <div className='relative flex flex-wrap content-stretch gap-4 py-4 px-2 justify-center'>
       {characters.map((character) => (
         <CharacterCard key={character.id} character={character} />
       ))}
