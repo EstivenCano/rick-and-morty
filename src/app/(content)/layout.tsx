@@ -13,8 +13,10 @@ export default function RootLayout({
 }) {
   return (
     <>
-      <AppBar />
-      <main className='flex w-full max-w-7xl mx-auto'>{children}</main>
+      <div className='flex flex-col w-full'>
+        <AppBar />
+        {children}
+      </div>
     </>
   );
 }

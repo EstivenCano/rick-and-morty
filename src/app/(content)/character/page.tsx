@@ -12,8 +12,8 @@ export default async function CharacterPage({ searchParams }: Props) {
   const { info, results } = data;
 
   return (
-    <>
+    <main className='max-w-7xl mx-auto'>
       <Character characters={results} info={info} />
-    </>
+    </main>
   );
 }
