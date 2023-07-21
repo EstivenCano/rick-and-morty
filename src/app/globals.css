@@ -76,7 +76,7 @@
 
 @layer base {
   * {
-    @apply border-border selection:bg-nuclear;
+    @apply border-border selection:bg-nuclear/40;
   }
   body {
     @apply bg-background text-foreground;
