@@ -20,13 +20,26 @@ interface Props {
 }
 
 export function PageSelector({ pages }: Props) {
-  const currentPage = useSearchParams().get("page") || "1";
+  const searchParams = useSearchParams();
+  const currentPage = searchParams.get("page") || "1";
 
   const pathname = usePathname();
   const router = useRouter();
 
-  const handleChange = (value: string) => {
-    router.push(`${pathname}?page=${value}`);
+  const handleQuery = (value: string) => {
+    const current = new URLSearchParams(Array.from(searchParams.entries()));
+
+    if (searchParams.get("page") === value) {
+      current.delete("page");
+    } else {
+      current.set("page", value);
+    }
+
+    const search = current.toString();
+
+    const query = search ? `?${search}` : "";
+
+    router.push(`${pathname}${query}`);
   };
 
   return (
@@ -42,7 +55,7 @@ export function PageSelector({ pages }: Props) {
         <ScrollArea className='h-[200px] w-[350px]'>
           <DropdownMenuRadioGroup
             value={currentPage}
-            onValueChange={handleChange}>
+            onValueChange={handleQuery}>
             {Array.from({ length: pages || 1 }, (v, i) => (
               <DropdownMenuRadioItem
                 key={i}

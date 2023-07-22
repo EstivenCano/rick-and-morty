@@ -15,7 +15,7 @@ interface Props {
 
 export const CharacterCard = ({ character }: Props) => {
   return (
-    <Card className='flex flex-row w-72 h-24 md:w-[440px] md:h-60 max-w-md justify-between'>
+    <Card className='flex flex-row max-w-full justify-between'>
       <div className='w-[140px] h-full float-left md:min-w-[180px] md:h-full relative rounded-l-sm overflow-hidden'>
         <Image
           src={character.image}
@@ -38,11 +38,15 @@ export const CharacterCard = ({ character }: Props) => {
         </CardHeader>
         <CardContent className='hidden md:flex flex-col gap-2 md:gap-4'>
           <div>
-            <strong className='text-md truncate'>Last know location:</strong>
+            <strong className='text-sm truncate text-muted-foreground'>
+              Last know location:
+            </strong>
             <p className='text-sm truncate'>{character.location.name}</p>
           </div>
           <div>
-            <strong className='text-md truncate'>First seen in:</strong>
+            <strong className='text-sm truncate text-muted-foreground'>
+              First seen in:
+            </strong>
             <p className='text-sm truncate'>{character.location.name}</p>
           </div>
         </CardContent>

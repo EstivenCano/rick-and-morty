@@ -2,11 +2,32 @@ import { getAllCharactersDto } from "@/dto/getAllCharacters.dto";
 import { request, gql } from "graphql-request";
 import { apiRoute } from "./constants";
 import { getCharacterByIdDto } from "@/dto/getCharacterById.dto";
+import { CharacterFilter } from "@/types/character-filter";
 
-export const getAllCharacters = async (page: number = 1) => {
+export const getAllCharacters = async ({
+  page = 1,
+  gender,
+  species,
+  status,
+  name,
+}: CharacterFilter) => {
   const document = gql`
-    query getAllCharacters($page: Int!) {
-      characters(page: $page) {
+    query getAllCharacters(
+      $page: Int!
+      $gender: String
+      $species: String
+      $status: String
+      $name: String
+    ) {
+      characters(
+        page: $page
+        filter: {
+          status: $status
+          species: $species
+          gender: $gender
+          name: $name
+        }
+      ) {
         results {
           id
           name
@@ -40,7 +61,7 @@ export const getAllCharacters = async (page: number = 1) => {
   const { characters } = await request<getAllCharactersDto>(
     apiRoute,
     document,
-    { page }
+    { page, species, status, gender, name }
   );
 
   return characters;
