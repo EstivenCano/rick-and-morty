@@ -17,7 +17,7 @@ interface Props {
 export const CharacterCard = ({ character }: Props) => {
   return (
     <Card className='flex flex-row max-w-full justify-between'>
-      <div className='w-[140px] h-full float-left md:min-w-[180px] md:h-full relative rounded-l-sm overflow-hidden'>
+      <div className='w-[140px] h-full md:min-w-[180px] md:h-full relative rounded-l-sm overflow-hidden'>
         <Image
           src={character.image}
           alt={`${character.name} image`}

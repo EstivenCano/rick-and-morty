@@ -73,18 +73,19 @@ export const getCharactersByIds = async (ids: [String]) => {
         species
         type
         gender
+        image
+        episode {
+          id
+          name
+        }
         origin {
           id
           name
-          type
-          dimension
         }
         location {
           id
           name
-          type
         }
-        image
       }
     }
   `;

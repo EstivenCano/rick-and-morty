@@ -4,7 +4,8 @@ import { Info } from "@/types/info";
 import { usePathname, useSearchParams } from "next/navigation";
 
 export const usePagination = (info: Info) => {
-  const currentPage = Number(useSearchParams().get("page") || 1);
+  const searchParams = useSearchParams();
+  const currentPage = Number(searchParams.get("page") || 1);
   const pathname = usePathname();
 
   const isFirstPage = info.prev === null;

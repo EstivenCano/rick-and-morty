@@ -11,16 +11,14 @@ export const CurrentInfo = (info: Info) => {
   ];
 
   return (
-    <>
-      <div className='m-auto sm:m-0'>
-        <p className='text-sm text-muted-foreground'>
-          <span className='hidden sm:inline'>Showing</span>{" "}
-          <span className='font-medium'>{range[0]}</span> to{" "}
-          <span className='font-medium'>{range[1]}</span> of{" "}
-          <span className='font-medium'>{info.count}</span>{" "}
-          <span className='hidden sm:inline'>results</span>
-        </p>
-      </div>
-    </>
+    <div className='m-auto sm:m-0'>
+      <p className='text-sm text-muted-foreground'>
+        <span className='hidden sm:inline'>Showing</span>{" "}
+        <span className='font-medium'>{range[0]}</span> to{" "}
+        <span className='font-medium'>{range[1]}</span> of{" "}
+        <span className='font-medium'>{info.count}</span>{" "}
+        <span className='hidden sm:inline'>results</span>
+      </p>
+    </div>
   );
 };

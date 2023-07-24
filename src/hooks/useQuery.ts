@@ -26,7 +26,9 @@ export const useQuery = () => {
       current.set(type, value);
     }
 
-    current.set("page", "1");
+    if (type !== "page") {
+      current.set("page", "1");
+    }
 
     const search = current.toString();
 
