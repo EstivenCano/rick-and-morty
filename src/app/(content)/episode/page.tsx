@@ -1,11 +1,11 @@
-import Location from "@/content/location";
+import Episodes from "@/content/episode";
 import { getAllEpisodes } from "@/services/episodes.service";
-import { getAllLocations } from "@/services/locations.service";
 
 type Props = {
   searchParams?: {
     page?: string;
     name?: string;
+    episode?: string;
   };
 };
 
@@ -13,13 +13,14 @@ export default async function EpisodePage({ searchParams }: Props) {
   const data = await getAllEpisodes({
     page: Number(searchParams?.page) || 1,
     name: searchParams?.name,
+    episode: searchParams?.episode,
   });
 
   const { info, results } = data;
 
   return (
     <main className='max-w-screen-2xl w-full mx-auto'>
-      {results[0].episode}
+      <Episodes episodes={results} info={info} />
     </main>
   );
 }

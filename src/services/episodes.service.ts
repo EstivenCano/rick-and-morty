@@ -4,10 +4,14 @@ import { apiRoute } from "./constants";
 import { EpisodeFilter } from "@/types/episode-filter";
 import { getAllEpisodesDto } from "@/dto/getAllEpisodes.dto";
 
-export const getAllEpisodes = async ({ page = 1, name }: EpisodeFilter) => {
+export const getAllEpisodes = async ({
+  page = 1,
+  name,
+  episode,
+}: EpisodeFilter) => {
   const document = gql`
-    query getAllEpisodes($page: Int!, $name: String) {
-      episodes(page: $page, filter: { name: $name }) {
+    query getAllEpisodes($page: Int!, $name: String, $episode: String) {
+      episodes(page: $page, filter: { name: $name, episode: $episode }) {
         results {
           id
           name
@@ -27,6 +31,7 @@ export const getAllEpisodes = async ({ page = 1, name }: EpisodeFilter) => {
   const { episodes } = await request<getAllEpisodesDto>(apiRoute, document, {
     page,
     name,
+    episode,
   });
 
   return episodes;

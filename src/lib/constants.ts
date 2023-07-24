@@ -36,3 +36,5 @@ export const dimensions = [
   "Fantasy Dimension",
   "Dimension 5-126",
 ];
+
+export const seasons = ["S01", "S02", "S03", "S04", "S05"];
