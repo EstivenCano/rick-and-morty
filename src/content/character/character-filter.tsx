@@ -41,7 +41,7 @@ export const CharacterFilter = () => {
       className='min-w-[250px] md:max-w-[250px] bg-background flex flex-col w-full top-20 md:sticky max-h-[calc(100vh-145.5px)] overflow-y-auto overflow-x-hidden md:pr-1 md:pl-2'>
       <AccordionItem value={`filters`}>
         <AccordionTrigger
-          className='capitalize hover:bg-muted hover:no-underline rounded-md px-2 py-2'
+          className='capitalize hover:bg-muted hover:no-underline rounded-md px-2 py-1'
           onClick={handleOpenFilter}>
           <h2 className='py-2 font-bold'>Filters</h2>
         </AccordionTrigger>
