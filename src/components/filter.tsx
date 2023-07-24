@@ -8,18 +8,16 @@ import {
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { useQuery } from "@/hooks/useQuery";
-import { gender, species, status } from "@/lib/constants";
-import { CharacterSearch } from "./character-search";
+
+import { SearchName } from "./search-name";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { useEffect, useState } from "react";
 
-const filters = [
-  { type: "status", values: status },
-  { type: "species", values: species },
-  { type: "gender", values: gender },
-];
+interface Props {
+  filters: Array<{ type: string; values: Array<string> }>;
+}
 
-export const CharacterFilter = () => {
+export const Filter = ({ filters }: Props) => {
   const { handleQuery, checkParam } = useQuery();
   const matches = useMediaQuery("(min-width: 768px)");
   const [openFilter, setOpenFilter] = useState(matches ? ["filters"] : []);
@@ -46,7 +44,7 @@ export const CharacterFilter = () => {
           <h2 className='py-2 font-bold'>Filters</h2>
         </AccordionTrigger>
         <AccordionContent className='py-2 px-1'>
-          <CharacterSearch />
+          <SearchName />
           <Accordion
             type='multiple'
             defaultValue={matches ? ["item-0", "item-1", "item-2"] : []}
