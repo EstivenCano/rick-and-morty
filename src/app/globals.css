@@ -88,7 +88,7 @@
 
   /* Track */
   ::-webkit-scrollbar-track {
-    @apply bg-background;
+    @apply bg-foreground/10;
     border-radius: 5px;
   }
 
