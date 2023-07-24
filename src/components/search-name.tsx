@@ -4,9 +4,9 @@ import { useQuery } from "@/hooks/useQuery";
 import { ChangeEvent, useEffect, useRef, useState } from "react";
 
 export const SearchName = () => {
-  const [value, setValue] = useState("");
-  const debouncedValue = useDebounce(value, 800);
   const { handleQuery, searchParams } = useQuery();
+  const [value, setValue] = useState(searchParams.get("name") || "");
+  const debouncedValue = useDebounce(value, 800);
   const handleChangeQuery = useRef(handleQuery);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -14,10 +14,10 @@ export const SearchName = () => {
   };
 
   useEffect(() => {
-    if (value !== "" && debouncedValue !== "") {
+    if (debouncedValue !== searchParams.get("name")) {
       handleChangeQuery.current({ type: "name", value: debouncedValue });
     }
-  }, [debouncedValue, value]);
+  }, [debouncedValue, searchParams]);
 
   return (
     <Input
