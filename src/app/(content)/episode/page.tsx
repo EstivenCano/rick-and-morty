@@ -1,28 +1,25 @@
 import Location from "@/content/location";
+import { getAllEpisodes } from "@/services/episodes.service";
 import { getAllLocations } from "@/services/locations.service";
 
 type Props = {
   searchParams?: {
     page?: string;
     name?: string;
-    type?: string;
-    dimension?: string;
   };
 };
 
-export default async function LocationPage({ searchParams }: Props) {
-  const data = await getAllLocations({
+export default async function EpisodePage({ searchParams }: Props) {
+  const data = await getAllEpisodes({
     page: Number(searchParams?.page) || 1,
     name: searchParams?.name,
-    dimension: searchParams?.dimension,
-    type: searchParams?.type,
   });
 
   const { info, results } = data;
 
   return (
     <main className='max-w-screen-2xl w-full mx-auto'>
-      <Location locations={results} info={info} />
+      {results[0].episode}
     </main>
   );
 }

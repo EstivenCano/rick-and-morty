@@ -18,7 +18,7 @@ const topics = [
   {
     title: "Episodes",
     description: "List of episodes",
-    path: "/location",
+    path: "/episode",
     image: "/assets/episodes.webp",
   },
 ];
