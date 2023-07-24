@@ -1,5 +1,6 @@
 import Episodes from "@/content/episode";
 import { getAllEpisodes } from "@/services/episodes.service";
+import { Metadata } from "next";
 
 type Props = {
   searchParams?: {
@@ -7,6 +8,11 @@ type Props = {
     name?: string;
     episode?: string;
   };
+};
+
+export const metadata: Metadata = {
+  title: "Episodes",
+  description: "Rick and Morty episodes list",
 };
 
 export default async function EpisodePage({ searchParams }: Props) {

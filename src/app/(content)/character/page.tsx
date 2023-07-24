@@ -1,5 +1,6 @@
 import { getAllCharacters } from "@/services/characters.service";
 import Character from "@/content/character";
+import { Metadata } from "next";
 
 type Props = {
   searchParams?: {
@@ -9,6 +10,11 @@ type Props = {
     species?: string;
     name?: string;
   };
+};
+
+export const metadata: Metadata = {
+  title: "Characters",
+  description: "Rick and Morty characters list",
 };
 
 export default async function CharacterPage({ searchParams }: Props) {

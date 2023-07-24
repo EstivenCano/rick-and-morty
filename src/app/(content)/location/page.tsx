@@ -1,5 +1,6 @@
 import Location from "@/content/location";
 import { getAllLocations } from "@/services/locations.service";
+import { Metadata } from "next";
 
 type Props = {
   searchParams?: {
@@ -8,6 +9,11 @@ type Props = {
     type?: string;
     dimension?: string;
   };
+};
+
+export const metadata: Metadata = {
+  title: "Locations",
+  description: "Rick and Morty locations list",
 };
 
 export default async function LocationPage({ searchParams }: Props) {
