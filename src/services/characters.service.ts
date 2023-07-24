@@ -33,18 +33,14 @@ export const getAllCharacters = async ({
           name
           status
           species
-          type
           gender
-          origin {
-            id
-            name
-            type
-            dimension
-          }
           location {
             id
             name
-            type
+          }
+          episode {
+            id
+            name
           }
           image
         }

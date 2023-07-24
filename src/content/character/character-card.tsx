@@ -19,7 +19,7 @@ export const CharacterCard = ({ character }: Props) => {
       <div className='w-[140px] h-full float-left md:min-w-[180px] md:h-full relative rounded-l-sm overflow-hidden'>
         <Image
           src={character.image}
-          alt='Rick and morty logo'
+          alt={`${character.name} image`}
           quality={100}
           fill
           style={{
@@ -45,9 +45,11 @@ export const CharacterCard = ({ character }: Props) => {
           </div>
           <div>
             <strong className='text-sm truncate text-muted-foreground'>
-              First seen in:
+              First episode:
             </strong>
-            <p className='text-sm truncate'>{character.location.name}</p>
+            <p className='text-sm truncate'>
+              {character.episode?.[0].name || "Unknown"}
+            </p>
           </div>
         </CardContent>
       </div>

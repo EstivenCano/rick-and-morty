@@ -13,7 +13,7 @@ interface Props {
 
 const Characters = ({ characters, info }: Props) => {
   return (
-    <div>
+    <div className='pb-14'>
       <CharacterList characters={characters} />
       <Pagination info={info} />
     </div>
