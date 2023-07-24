@@ -5,8 +5,8 @@ import { ChangeEvent, useEffect, useRef, useState } from "react";
 
 export const SearchName = () => {
   const [value, setValue] = useState("");
-  const debouncedValue = useDebounce(value, 1000);
-  const { handleQuery } = useQuery();
+  const debouncedValue = useDebounce(value, 800);
+  const { handleQuery, searchParams } = useQuery();
   const handleChangeQuery = useRef(handleQuery);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -14,13 +14,16 @@ export const SearchName = () => {
   };
 
   useEffect(() => {
-    handleChangeQuery.current({ type: "name", value: debouncedValue });
-  }, [debouncedValue]);
+    if (value !== "" && debouncedValue !== "") {
+      handleChangeQuery.current({ type: "name", value: debouncedValue });
+    }
+  }, [debouncedValue, value]);
 
   return (
     <Input
       type='text'
       name='name'
+      defaultValue={searchParams.get("name") || ""}
       placeholder='Search a name...'
       className='mb-3'
       onChange={handleChange}

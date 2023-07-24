@@ -22,11 +22,11 @@ export const useQuery = () => {
 
     if (checkParam({ type, value })) {
       current.delete(type);
-      current.set("page", "1");
     } else {
       current.set(type, value);
-      current.set("page", "1");
     }
+
+    current.set("page", "1");
 
     const search = current.toString();
 
