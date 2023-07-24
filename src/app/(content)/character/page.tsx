@@ -23,7 +23,7 @@ export default async function CharacterPage({ searchParams }: Props) {
   const { info, results } = data;
 
   return (
-    <main className='max-w-screen-2xl w-full mx-auto'>
+    <main className='max-w-screen-2xl w-full mx-auto relative'>
       <Character characters={results} info={info} />
     </main>
   );

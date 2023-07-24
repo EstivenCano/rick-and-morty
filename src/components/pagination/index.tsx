@@ -16,7 +16,7 @@ export const Pagination = ({ info }: Props) => {
   const { isFirstPage, isLastPage, pathname } = usePagination(info);
 
   return (
-    <div className='flex w-full fixed bottom-0 items-center justify-between border-t border bg-background px-4 py-3 sm:px-6 text-foreground'>
+    <div className='flex w-full max-w-screen-2xl fixed bottom-0 items-center justify-between border-t border bg-background px-4 py-3 sm:px-6 text-foreground'>
       <div className='flex flex-1 justify-between sm:hidden'>
         <Button variant='outline' disabled={isFirstPage} asChild>
           <Link href={`${pathname}?page=${info.prev}`}>Previous</Link>
