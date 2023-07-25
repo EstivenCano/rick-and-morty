@@ -1,4 +1,3 @@
-import { ChangeTheme } from "@/components/change-theme";
 import { TopicCard } from "@/components/topic-card";
 import Image from "next/image";
 
@@ -26,15 +25,16 @@ const topics = [
 export default function Home() {
   return (
     <>
-      <Image
-        src='/assets/logo.webp'
-        alt='Rick and morty logo'
-        width={220}
-        height={50}
-        className='-rotate-12 top-4 left-4 fixed'
-      />
-      <span className='fixed top-4 right-4 z-10'>
-        <ChangeTheme />
+      <span className='-rotate-12 top-4 left-4 fixed w-52 h-14'>
+        <Image
+          src='/assets/logo.webp'
+          alt='Rick and morty logo'
+          fill
+          priority
+          style={{
+            objectFit: "cover",
+          }}
+        />
       </span>
       <h1 className='sr-only'>Rick and Morty</h1>
       <h2 className='sr-only'>

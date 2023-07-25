@@ -1,8 +1,7 @@
 import { getAllCharactersDto } from "@/dto/getAllCharacters.dto";
-import { request, gql } from "graphql-request";
-import { apiRoute } from "./constants";
 import { getCharacterByIdDto } from "@/dto/getCharacterById.dto";
 import { CharacterFilter } from "@/types/character-filter";
+import { serviceClient } from "./serviceClient";
 
 export const getAllCharacters = async ({
   page = 1,
@@ -11,7 +10,7 @@ export const getAllCharacters = async ({
   status,
   name,
 }: CharacterFilter) => {
-  const document = gql`
+  const query = `
     query getAllCharacters(
       $page: Int!
       $gender: String
@@ -54,17 +53,16 @@ export const getAllCharacters = async ({
     }
   `;
 
-  const { characters } = await request<getAllCharactersDto>(
-    apiRoute,
-    document,
-    { page, species, status, gender, name }
-  );
+  const { characters } = await serviceClient<getAllCharactersDto>({
+    query,
+    variables: { page, species, status, gender, name },
+  });
 
   return characters;
 };
 
 export const getCharactersByIds = async (ids: [String]) => {
-  const document = gql`
+  const query = `
     query getCharactersById($ids: [ID!]!) {
       charactersByIds(ids: $ids) {
         id
@@ -90,8 +88,9 @@ export const getCharactersByIds = async (ids: [String]) => {
     }
   `;
 
-  const response = await request<getCharacterByIdDto>(apiRoute, document, {
-    ids,
+  const response = await serviceClient<getCharacterByIdDto>({
+    query,
+    variables: { ids },
   });
 
   return response.charactersByIds;

@@ -1,8 +1,7 @@
-import { request, gql } from "graphql-request";
-import { apiRoute } from "./constants";
 import { LocationFilter } from "@/types/location-filter";
 import { getAllLocationsDto } from "@/dto/getAllLocations.dto";
 import { getLocationByIdDto } from "@/dto/getLocationById.dto";
+import { serviceClient } from "./serviceClient";
 
 export const getAllLocations = async ({
   page = 1,
@@ -10,7 +9,7 @@ export const getAllLocations = async ({
   dimension,
   type,
 }: LocationFilter) => {
-  const document = gql`
+  const query = `
     query getAllLocations(
       $page: Int!
       $name: String
@@ -37,18 +36,21 @@ export const getAllLocations = async ({
     }
   `;
 
-  const { locations } = await request<getAllLocationsDto>(apiRoute, document, {
-    page,
-    name,
-    type,
-    dimension,
+  const { locations } = await serviceClient<getAllLocationsDto>({
+    query,
+    variables: {
+      page,
+      name,
+      type,
+      dimension,
+    },
   });
 
   return locations;
 };
 
 export const getLocationById = async (ids: [String]) => {
-  const document = gql`
+  const query = `
     query getLocationById($ids: [ID!]!) {
       locationsByIds(ids: $ids) {
         id
@@ -64,13 +66,10 @@ export const getLocationById = async (ids: [String]) => {
     }
   `;
 
-  const { locationsByIds } = await request<getLocationByIdDto>(
-    apiRoute,
-    document,
-    {
-      ids,
-    }
-  );
+  const { locationsByIds } = await serviceClient<getLocationByIdDto>({
+    query,
+    variables: { ids },
+  });
 
   return locationsByIds;
 };

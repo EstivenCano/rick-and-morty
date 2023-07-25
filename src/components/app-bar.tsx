@@ -20,7 +20,7 @@ export const AppBar = () => {
     <nav className='z-10 h-20 sticky bg-background top-0 flex justify-between items-center w-full py-1 px-2 md:px-8 border-b-2'>
       <Button
         variant='link'
-        className='h-16 w-48 max-w-xs relative cursor-pointer hidden md:flex'
+        className='h-16 w-44 max-w-xs relative cursor-pointer hidden md:flex'
         asChild>
         <Link href='/' about='Go back to home'>
           <Image

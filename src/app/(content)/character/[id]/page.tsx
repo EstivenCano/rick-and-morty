@@ -37,8 +37,10 @@ export default async function CharacterById({
           <div className='flex flex-wrap gap-1'>
             <strong className='text-sm truncate text-bluclear'>Origin:</strong>
             <Link
-              href={`/location/${character.origin.id}`}
-              className='text-sm truncate hover:text-bluclear cursor-pointer'>
+              href={`/location${
+                !!character.origin.id ? `/` + character.origin.id : ""
+              }`}
+              className='text-sm truncate hover:text-bluclear cursor-pointer capitalize'>
               {character.origin.name || "Unknown"}
             </Link>
           </div>

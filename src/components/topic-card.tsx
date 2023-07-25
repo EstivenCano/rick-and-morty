@@ -35,6 +35,7 @@ export const TopicCard = ({
         src={image}
         alt={`${title} image`}
         fill
+        priority
         style={{ objectFit: "cover" }}
         className='-z-10 md:filter md:grayscale md:group-hover:grayscale-0 md:duration-150 group-hover:scale-105'
       />
