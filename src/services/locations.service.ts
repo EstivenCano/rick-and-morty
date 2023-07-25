@@ -2,6 +2,7 @@ import { request, gql } from "graphql-request";
 import { apiRoute } from "./constants";
 import { LocationFilter } from "@/types/location-filter";
 import { getAllLocationsDto } from "@/dto/getAllLocations.dto";
+import { getLocationByIdDto } from "@/dto/getLocationById.dto";
 
 export const getAllLocations = async ({
   page = 1,
@@ -44,4 +45,32 @@ export const getAllLocations = async ({
   });
 
   return locations;
+};
+
+export const getLocationById = async (ids: [String]) => {
+  const document = gql`
+    query getLocationById($ids: [ID!]!) {
+      locationsByIds(ids: $ids) {
+        id
+        name
+        type
+        dimension
+        residents {
+          id
+          name
+          image
+        }
+      }
+    }
+  `;
+
+  const { locationsByIds } = await request<getLocationByIdDto>(
+    apiRoute,
+    document,
+    {
+      ids,
+    }
+  );
+
+  return locationsByIds;
 };
