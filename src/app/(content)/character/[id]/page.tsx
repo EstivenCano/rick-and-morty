@@ -36,14 +36,20 @@ export default async function CharacterById({
           </div>
           <div className='flex flex-wrap gap-1'>
             <strong className='text-sm truncate text-bluclear'>Origin:</strong>
-            <p className='text-sm truncate'>
+            <Link
+              href={`/location/${character.origin.id}`}
+              className='text-sm truncate hover:text-bluclear cursor-pointer'>
               {character.origin.name || "Unknown"}
-            </p>
+            </Link>
           </div>
         </div>
         <hr />
-        <Accordion type='multiple' className='w-full sm:mr-2 mr-8'>
-          <AccordionItem value={`episodes`}>
+        <Accordion
+          type='single'
+          collapsible
+          className='w-full sm:mr-2 mr-8'
+          defaultValue='episodes'>
+          <AccordionItem value='episodes'>
             <AccordionTrigger className='hover:bg-muted hover:no-underline rounded-md px-2 py-2 bg-foreground/10'>
               List of episodes
             </AccordionTrigger>

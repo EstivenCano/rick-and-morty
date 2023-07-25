@@ -40,8 +40,8 @@ export default async function LocationById({
           </div>
         </div>
         <hr />
-        <Accordion type='single' collapsible>
-          <AccordionItem value={`residents`}>
+        <Accordion type='single' collapsible defaultValue='residents'>
+          <AccordionItem value='residents'>
             <AccordionTrigger className='hover:bg-muted hover:no-underline rounded-md px-2 py-2 bg-foreground/10'>
               List of residents
             </AccordionTrigger>
@@ -56,6 +56,7 @@ export default async function LocationById({
                     quality={100}
                     width={100}
                     height={100}
+                    className='rounded-l-sm'
                   />
                   <CardHeader className='p-2 md:p-6 md:py-4'>
                     <Link

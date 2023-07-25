@@ -3,6 +3,7 @@ import { apiRoute } from "./constants";
 
 import { EpisodeFilter } from "@/types/episode-filter";
 import { getAllEpisodesDto } from "@/dto/getAllEpisodes.dto";
+import { getEpisodeByIdDto } from "@/dto/getEpisodeById.dto";
 
 export const getAllEpisodes = async ({
   page = 1,
@@ -35,4 +36,32 @@ export const getAllEpisodes = async ({
   });
 
   return episodes;
+};
+
+export const getEpisodeById = async (ids: [String]) => {
+  const document = gql`
+    query getEpisodeById($ids: [ID!]!) {
+      episodesByIds(ids: $ids) {
+        id
+        name
+        air_date
+        episode
+        characters {
+          id
+          name
+          image
+        }
+      }
+    }
+  `;
+
+  const { episodesByIds } = await request<getEpisodeByIdDto>(
+    apiRoute,
+    document,
+    {
+      ids,
+    }
+  );
+
+  return episodesByIds;
 };
