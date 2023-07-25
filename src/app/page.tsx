@@ -37,6 +37,9 @@ export default function Home() {
         <ChangeTheme />
       </span>
       <h1 className='sr-only'>Rick and Morty</h1>
+      <h2 className='sr-only'>
+        Information about characters, locations and episodes
+      </h2>
       <main className='grid grid-cols-1 md:grid-cols-2 row-auto m-auto h-screen bg-foreground/10'>
         {topics.map((topic, i) => (
           <TopicCard

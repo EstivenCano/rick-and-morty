@@ -47,7 +47,7 @@ export const TopicCard = ({
             </CardDescription>
           </div>
           <Button variant='outline' className='gap-2 ml-auto group' asChild>
-            <Link href={path}>
+            <Link href={path} aria-label={`Go to ${title} page`}>
               <ArrowBigRight
                 size={30}
                 className='fill-bluclear group-hover:fill-nuclear stroke-foreground stroke-1'
