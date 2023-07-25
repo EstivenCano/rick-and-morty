@@ -23,7 +23,7 @@ export default async function EpisodeById({
   }
 
   return (
-    <main className='grid max-w-4xl mx-auto w-full gap-4 py-4 px-2'>
+    <main className='grid grid-cols-1 max-w-4xl mx-auto w-full gap-4 py-4 px-2'>
       <EpisodeCard episode={episode} />
       <section className='flex flex-col gap-4 rounded-lg border border-r-4 border-r-nuclear/60 bg-card text-card-foreground shadow-sm px-4 md:px-6 py-4'>
         <h2 className='text-lg font-bold text-bluclear'>More info:</h2>
