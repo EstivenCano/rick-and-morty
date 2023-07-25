@@ -37,7 +37,7 @@ export const AppBar = () => {
       <NavigationMenu className='flex md:hidden'>
         <NavigationMenuList>
           <NavigationMenuItem>
-            <NavigationMenuTrigger className='border px-2'>
+            <NavigationMenuTrigger className='border px-2' aria-label='Menu'>
               <Menu />
             </NavigationMenuTrigger>
             <NavigationMenuContent>
