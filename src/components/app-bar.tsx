@@ -28,6 +28,7 @@ export const AppBar = () => {
             alt='Rick and morty logo'
             quality={100}
             fill
+            priority
             style={{
               objectFit: "contain",
             }}
@@ -92,7 +93,6 @@ export const AppBar = () => {
           </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>
-
       <ChangeTheme />
     </nav>
   );

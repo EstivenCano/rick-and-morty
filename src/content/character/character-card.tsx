@@ -26,6 +26,7 @@ export const CharacterCard = ({ character }: Props) => {
           style={{
             objectFit: "cover",
           }}
+          className='bg-nuclear/30'
         />
       </div>
       <div className='border-r-4 px-2 md:px-0 flex flex-col rounded-md border-nuclear/60 w-full overflow-hidden'>
