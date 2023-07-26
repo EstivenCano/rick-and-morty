@@ -23,7 +23,7 @@ export default async function CharacterById({
   return (
     <main className='grid grid-cols-1 max-w-4xl mx-auto w-full gap-4 py-4 px-2'>
       <CharacterCard character={character} />
-      <section className='flex flex-col gap-4 rounded-lg border border-r-4 border-r-nuclear/60 bg-card text-card-foreground shadow-sm px-2 py-4'>
+      <section className='flex flex-col gap-4 rounded-lg border border-r-4 border-r-nuclear/60 bg-card text-card-foreground shadow-sm px-2 py-4 overflow-hidden'>
         <h2 className='text-lg font-bold text-bluclear'>More info:</h2>
         <div className='flex flex-row gap-4 text-2xl'>
           <div className='flex flex-wrap gap-1'>
@@ -40,7 +40,7 @@ export default async function CharacterById({
               href={`/location${
                 !!character.origin.id ? `/` + character.origin.id : ""
               }`}
-              className='text-sm truncate hover:text-bluclear cursor-pointer capitalize'>
+              className='text-sm hover:text-bluclear cursor-pointer capitalize'>
               {character.origin.name || "Unknown"}
             </Link>
           </div>
